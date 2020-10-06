@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 let entry = './src/index.js';
 let output = {
@@ -48,4 +49,8 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    // Ignore all locale files of moment.js
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+  ],
 };
